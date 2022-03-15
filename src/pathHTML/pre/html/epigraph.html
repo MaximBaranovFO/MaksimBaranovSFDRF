@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html class="no-js fonts-loaded" lang="ru">
+<head>
+<script async="" src="JavaScript/context.js" type="text/javascript"></script>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta content="width=1024" name="viewport">
+<title>Конвертируем java в HTML</title>
+
+<meta name="description" content="
+Java — формат, ставший уже стандартом. Он был изначально создан для представления текста и изображений в документе с фиксированной структурой. Давно не редкость для веб-приложений,...">
+
+<meta name="keywords" content="Java, генерация документации (document, doc)">
+<meta property="fb:app_id" content="444736788986613"> 
+<meta property="og:type" content="article"> 
+<meta property="og:url" content="https://fromRussiaAtSibir.ru/post/1363/"> 
+<meta property="og:title" content="Конвертируем Java в HTML">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@habrahabr">
+<meta property="al:android:url" content="habrahabr://post/190364">
+<meta property="al:android:app_name" content="Habrahabr">
+<meta property="al:android:package" content="ru.habrahabr">
+<meta property="al:windows_phone:url" content="habrahabr://post/190364">
+<meta property="al:windows_phone:app_name" content="Habrahabr">
+<meta property="al:windows_phone:app_id" content="460a6bd6-8955-470f-935e-9ea1726a6060">
+<link rel="canonical" href="https://habrahabr.ru/post/190364/">
+<link rel="alternate" media="only screen and (max-width: 640px)" href="https://m.habrahabr.ru/post/190364/">
+
+
+
+<meta name="yandex-verification" content="71593b225aeafc4e">
+<meta name="referrer" content="unsafe-url">
+<meta name="pocket-site-verification" content="ed24b2b9721edf0a282c5b4a3232c4">
+
+
+<style type="text/css">
+  @font-face{font-family:'Fira Sans';font-style:normal;font-weight:500;src:url(/fonts/0/FiraSans/hg-FiraSans-Medium.eot);src:local("Fira Sans Medium"),local("FiraSans-Medium"),url(/fonts/0/FiraSans/hg-FiraSans-Medium.eot?#iefix) format("embedded-opentype"),url(/fonts/0/FiraSans/hg-FiraSans-Medium.woff2) format("woff2"),url(/fonts/0/FiraSans/hg-FiraSans-Medium.woff) format("woff"),url(/fonts/0/FiraSans/hg-FiraSans-Medium.ttf) format("truetype")}
+</style>
+
+<link href="JavaScript/post_common_css.css" rel="stylesheet" media="all">
+<link href="JavaScript/all.css" rel="stylesheet" media="all">
+
+<link href="JavaScript/global_main.css" rel="stylesheet" media="all">
+
+
+
+
+<meta name="yandex-verification" content="67d46b975fa41645">
+
+<meta content="Хабрахабр" name="apple-mobile-web-app-title">
+
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://habrahabr.ru/images/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://habrahabr.ru/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://habrahabr.ru/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://habrahabr.ru/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://habrahabr.ru/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://habrahabr.ru/images/favicons/apple-touch-icon-152x152.png">
+<link rel="icon" type="image/png" href="https://habrahabr.ru/images/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="https://habrahabr.ru/images/favicons/favicon-16x16.png" sizes="16x16">
+<meta name="application-name" content="Хабрахабр">
+<meta name="msapplication-TileColor" content="#FFFFFF">
+<meta name="msapplication-TileImage" content="mstile-144x144.png">
+
+<link title="Хабрахабр / Комментарии к публикации «Конвертируем HTML в PDF при помощи Dompdf»" type="application/rss+xml" rel="alternate" href="https://habrahabr.ru/rss/post/190364/">
+
+
+  
+  
+
+<script type="text/javascript">
+//function replace(element, from, to){
+//    if (element.childNodes.length) {
+//        element.childNodes.forEach(child => replace(child, from, to));
+//    } else {
+//        const cont = element.textContent;
+//        if (cont) element.textContent = cont.replace(from, to);
+//    }
+//};
+
+//replace(document.body, new RegExp("procedure", "g"), "hi");
+//replace(document.body, new RegExp("private", "g"), "<span>private</span>");
+//replace(document.body, "public", "<span>public</span>");
+//replace(document.body, "private void", "<span>private void</span>");
+//replace(document.body, "private static", "<span>private static</span>");
+</script>
+
+
+</head>
+
+<body class="nl">
+    <div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px none; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;">
+        <div id="MathJax_SVG_Hidden"></div><svg><defs id="MathJax_SVG_glyphs"></defs></svg>
+    </div>
+    <div style="display: none;" id="MathJax_Message"></div>
+    <div class="layout">
+      <div id="TMpanel">
+        <div class="container">
+          <div class="bmenu">
+            <a href="https://tmfeed.ru/?utm_source=tm_habrahabr&amp;utm_medium=tm_top_panel&amp;utm_campaign=tm_promo">TM Feed</a>
+            <a href="https://habrahabr.ru/?utm_source=tm_habrahabr&amp;utm_medium=tm_top_panel&amp;utm_campaign=tm_promo" class="current">habrahabr.ru</a>
+            <a href="https://geektimes.ru/?utm_source=tm_habrahabr&amp;utm_medium=tm_top_panel&amp;utm_campaign=tm_promo">Geektimes</a>
+            <a href="https://toster.ru/?utm_source=tm_habrahabr&amp;utm_medium=tm_top_panel&amp;utm_campaign=tm_promo">Toaster</a>
+            <a href="https://moikrug.ru/?utm_source=tm_habrahabr&amp;utm_medium=tm_top_panel&amp;utm_campaign=tm_promo">My circle</a>
+            <a href="https://freelansim.ru/?utm_source=tm_habrahabr&amp;utm_medium=tm_top_panel&amp;utm_campaign=tm_promo">Freelance</a>
+          </div>
+          <div class="bmenu_inner" style="display:inline-block!important;visibility:visible!important;">
+              <span class="bmenu__label">Megaposts:</span>
+              <span class="bmenu slink"><a href="https://habrahabr.ru/article/323816/" target="_blank" style="color: #31B007">VideoPhonePanasonic</a>
+              <a href="https://habrahabr.ru/article/316656/" target="_blank" style="color: #3c86ee">habrahabr.ru</a></span>
+             <span title="" id="adriver_banner_465568687"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+<br>
+<div class="layout__row layout__row_body">
+<div class="layout__cell">
+  <div class="content_wrapper column-wrapper_content">
+  <div class="column-wrapper js-sticky_wrapper">
+    <div class="post__body post__body_full">
+      <div class="content html_format">
+
+<br>
+<pre><code class="php hljs"><br>

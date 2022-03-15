@@ -1,0 +1,58 @@
+<html>
+    <head>
+    <script>
+      var openFile = function(event) {
+        var input = event.target;
+
+        var reader = new FileReader();
+        reader.onload = function(){
+          var text = reader.result;
+          var node = document.getElementById('output');
+          node.innerText = text;
+          console.log(reader.result.substring(0, 200));
+        };
+        reader.readAsText(input.files[0]);
+
+      };
+    </script>
+    
+    </head>
+    <body  onchange='correctFile(event)'>
+    <input type='file' accept='text/plain' onchange='openFile(event)'><br>
+    <div id='output'>
+    ...
+    </div>
+
+    </body>
+<script type="text/javascript">
+          document.body.innerHTML = document.body.innerHTML.split("private ").join("<span class='hljs-string'>private </span>");
+          document.body.innerHTML = document.body.innerHTML.split("protected ").join("<span class='hljs-string'>protected </span>");
+          document.body.innerHTML = document.body.innerHTML.split("public ").join("<span class='hljs-string'>public </span>");
+          document.body.innerHTML = document.body.innerHTML.split("import ").join("<span class='flag flag_tutorial' title='Public class declaration'>import </span>");
+          document.body.innerHTML = document.body.innerHTML.split(" throw ").join("<span class='flag flag_tutorial' title='Public class declaration'> throw </span>");
+          document.body.innerHTML = document.body.innerHTML.split(" static ").join("<span class='hljs-string'> static </span>");
+          document.body.innerHTML = document.body.innerHTML.split(" finally ").join("<span class='hljs-keyword'><i><u><b> finally </b></u></i></span>");
+          document.body.innerHTML = document.body.innerHTML.split(" final ").join("<span class='hljs-string'> final </span>");
+
+          document.body.innerHTML = document.body.innerHTML.split(" transient ").join("<span class='hljs-string'> transient </span>");
+
+          document.body.innerHTML = document.body.innerHTML.split(" for ").join("<span class='hljs-string'> for </span>");
+
+          document.body.innerHTML = document.body.innerHTML.split(" while ").join("<span class='hljs-string'> while </span>");
+
+          document.body.innerHTML = document.body.innerHTML.split(" if ").join("<span class='hljs-string'> if </span>");
+
+          document.body.innerHTML = document.body.innerHTML.split(" else ").join("<span class='hljs-string'> else </span>");
+
+          document.body.innerHTML = document.body.innerHTML.split(" void ").join("<span class='hljs-string'> void </span>");
+
+          document.body.innerHTML = document.body.innerHTML.split(" try ").join("<span class='hljs-keyword'> <i><u><b> try </b></u></i></span>");
+
+          document.body.innerHTML = document.body.innerHTML.split(" catch ").join("<span class='hljs-keyword'><i><u><b> catch </b></u></i></span>");
+
+          document.body.innerHTML = document.body.innerHTML.split(" return ").join("<span class='flag flag_tutorial' title='Get out from function with retun result, void not return'> return </span>");
+          document.body.innerHTML = document.body.innerHTML.split(" <pre> ").join("<span class='flag flag_tutorial' title='Get out from function with retun result, void not return'> <pre> </span>");
+          document.body.innerHTML = document.body.innerHTML.split(" <U> ").join("<span class='flag flag_tutorial' title='Get out from function with retun result, void not return'> <U> </span>");
+          sdocument.body.innerHTML = document.body.innerHTML.split(" <T> ").join("<span class='flag flag_tutorial' title='Get out from function with retun result, void not return'> <T> </span>");
+</script>
+    </html>
