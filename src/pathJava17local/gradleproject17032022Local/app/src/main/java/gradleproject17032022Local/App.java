@@ -14,8 +14,9 @@ public class App {
     }
 
     public static void main(String[] args) {
-        runCmdShell();
+        
         System.out.println(new App().getGreeting());
+        runCmdShell();
     }
     
     private static void runCmdShell(){
