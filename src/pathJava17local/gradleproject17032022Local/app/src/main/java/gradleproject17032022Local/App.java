@@ -16,7 +16,7 @@ public class App {
     public static void main(String[] args) {
         
         System.out.println(new App().getGreeting());
-        runCmdShell();
+        //runCmdShell();
     }
     
     private static void runCmdShell(){
@@ -35,6 +35,9 @@ public class App {
 		// Run a command
 		//Process process = Runtime.getRuntime().exec("cmd /c dir C:\\Users\\mkyong");
 
+                
+                
+                
 		//Run a bat file
 		Process process = Runtime.getRuntime().exec(
 				"cmd /c c:\\_bmv\\17JavaLearn\\MaksimBaranovSFDRF\\src\\pathCmd\\cmd3.bat", null, new File("c:\\_bmv\\17JavaLearn\\MaksimBaranovSFDRF\\src\\outputs\\"));
