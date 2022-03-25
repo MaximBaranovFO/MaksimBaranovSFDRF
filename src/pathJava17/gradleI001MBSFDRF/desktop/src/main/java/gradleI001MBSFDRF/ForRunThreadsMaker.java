@@ -28,6 +28,10 @@ public class PausableThreadPoolExecutor extends ThreadPoolExecutor {
                 0L, TimeUnit.MILLISECONDS,
                 new LinkedBlockingQueue<Runnable>());
     }
+    
+    protected static PausableThreadPoolExecutor getNewElement(int poolSizeOfElement){
+        return new PausableThreadPoolExecutor(poolSizeOfElement);
+    }
 
     protected void beforeExecute(Thread t, Runnable r) {
         super.beforeExecute(t, r);
