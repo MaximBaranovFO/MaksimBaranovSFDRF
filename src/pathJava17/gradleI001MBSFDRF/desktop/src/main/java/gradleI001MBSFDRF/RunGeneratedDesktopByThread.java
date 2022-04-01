@@ -27,16 +27,16 @@ public interface RunGeneratedDesktopByThread {
     
     public class whatDoSomeCreatedWorkers{
         
-        private ConcurrentSkipListMap<Integer, BrowserBuilder> listExecResultsTemporary = null;
+        private ConcurrentSkipListMap<Long, BrowserBuilder> listExecResultsTemporary = null;
         private Boolean isListExecResultsSet = Boolean.FALSE;
         public static Boolean hereIsCreated = Boolean.FALSE;
     
         whatDoSomeCreatedWorkers(){
-            listExecResultsTemporary = new ConcurrentSkipListMap<Integer, BrowserBuilder>();
+            listExecResultsTemporary = new ConcurrentSkipListMap<Long, BrowserBuilder>();
             isListExecResultsSet = Boolean.TRUE;
             hereIsCreated = Boolean.TRUE;
         }
-        private ConcurrentSkipListMap<Integer, BrowserBuilder> getList(){
+        private ConcurrentSkipListMap<Long, BrowserBuilder> getList(){
             return listExecResultsTemporary.clone();
         }
         public Boolean isHimHasList(){
@@ -49,21 +49,23 @@ public interface RunGeneratedDesktopByThread {
                 return 0;
             return listExecResultsTemporary.size();
         }
-        public void addWorkerProcessInList(ConcurrentSkipListMap<Integer, BrowserBuilder> outputListOfWorkerProcess){
+        public void addWorkerProcessInList(ConcurrentSkipListMap<Long, BrowserBuilder> outputListOfWorkerProcess){
             if ( listExecResultsTemporary != null )
                 if ( outputListOfWorkerProcess != null )
-                    do{
+                    do {
                         listExecResultsTemporary.put(outputListOfWorkerProcess.firstKey(),outputListOfWorkerProcess.remove(outputListOfWorkerProcess.firstKey()));
-                    }while(outputListOfWorkerProcess.isEmpty());
+                    } while(outputListOfWorkerProcess.isEmpty());
         }
     }
     
     public class RunGeneratedDesktopThreadedProgress {
-        private ConcurrentSkipListMap<Integer, BrowserBuilder> execResultsTemporary;
+        private ConcurrentSkipListMap<Long, BrowserBuilder> execResultsTemporary;
+        private whatDoSomeCreatedWorkers oneOfPointsOfWorkersList;
     
     RunGeneratedDesktopThreadedProgress(){
         super();
         execResultsTemporary = new ConcurrentSkipListMap();
+        oneOfPointsOfWorkersList = new whatDoSomeCreatedWorkers();
     }
     protected void runGeneratedDesktop(){
         long currentTimeMillis = System.currentTimeMillis();
@@ -73,8 +75,20 @@ public interface RunGeneratedDesktopByThread {
             BrowserBuilder loadFinished = BrowserBuilder.newBrowser().loadPage("pages/index.html")
                     .loadFinished(Demo::onPageLoad);
             
-        execResultsTemporary.put(Integer.getInteger(valueOfCurrentTime), loadFinished);
-        
+            if( execResultsTemporary != null) {
+                try {
+                        
+                    if( loadFinished != null)
+                        execResultsTemporary.put(System.currentTimeMillis(), loadFinished);
+                } catch (java.lang.NullPointerException ex) {
+                    System.out.println(ex.getMessage());
+                    ex.printStackTrace();
+                }
+            } else {
+                execResultsTemporary = new ConcurrentSkipListMap();
+                execResultsTemporary.put(System.currentTimeMillis(), loadFinished);
+                oneOfPointsOfWorkersList.addWorkerProcessInList(execResultsTemporary.clone());
+            }
         loadFinished.showAndWait();
         System.exit(0);
     }
