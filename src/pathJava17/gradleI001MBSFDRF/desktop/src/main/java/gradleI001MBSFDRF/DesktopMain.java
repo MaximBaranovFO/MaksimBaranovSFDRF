@@ -12,12 +12,11 @@ class DesktopMain {
         
         //Additions for more of use by functional
         runCmdShell();
-        //Created system build
-        BrowserBuilder.newBrowser().loadPage("pages/index.html")
-                .loadFinished(Demo::onPageLoad)
-                .showAndWait();
         
-        System.exit(0);
+        //Created system build into Interface
+        RunGeneratedDesktopByThread.RunGeneratedDesktopThreadedProgress runInLocalGeneratedDesktopThreadedProgress = new RunGeneratedDesktopByThread.RunGeneratedDesktopThreadedProgress();
+        runInLocalGeneratedDesktopThreadedProgress.runGeneratedDesktop();
+        
     }
     
     private static void runCmdShell(){

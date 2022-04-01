@@ -45,7 +45,7 @@ public interface RunCmdThExecInterface003 {
             
             
             ForRunThreadsMaker.PausableThreadPoolExecutor newElementPausableThreadPool = ForRunThreadsMaker.PausableThreadPoolExecutor.getNewElement(5);
-       countNewElement = 1;
+       countNewElement = 3;
        if( countNewElement > 1 ){
            newElementPausableThreadPool.beforeExecute(new Thread(), new ElementsRunInThisVal());
            //countNewElement = 0;
