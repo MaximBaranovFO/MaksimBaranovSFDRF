@@ -10,6 +10,7 @@ import java.awt.GridBagLayout;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentSkipListMap;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
@@ -89,6 +90,9 @@ public interface RunGeneratedDesktopByThread {
                 execResultsTemporary.put(System.currentTimeMillis(), loadFinished);
                 oneOfPointsOfWorkersList.addWorkerProcessInList(execResultsTemporary.clone());
             }
+            
+            ThreadedProgress.mainRunThreadedFrame();
+            
         loadFinished.showAndWait();
         System.exit(0);
     }
@@ -114,6 +118,15 @@ public interface RunGeneratedDesktopByThread {
                 JPanel progressPane = new JPanel(new GridBagLayout());
                 JProgressBar progressBar = new JProgressBar(0, 100);
                 progressPane.add(progressBar);
+                
+                //001 add Button in from internet form
+                JButton someButton = new JButton();
+                someButton.setText("Run Worker");
+                RunThreadRunnableAdapter.ConcurrentSkipListMapReader adapterChangeGUI = 
+                        new RunThreadRunnableAdapter.ConcurrentSkipListMapReader();
+                someButton = adapterChangeGUI.statusOfButton(someButton);
+                
+                progressPane.add(someButton);
 
                 JFrame frame = new JFrame();
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
