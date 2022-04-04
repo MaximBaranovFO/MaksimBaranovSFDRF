@@ -5,7 +5,10 @@
 package gradleI001MBSFDRF;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.util.ArrayList;
 import java.util.List;
@@ -115,9 +118,21 @@ public interface RunGeneratedDesktopByThread {
                 } catch (UnsupportedLookAndFeelException ex) {
                 }
 
-                JPanel progressPane = new JPanel(new GridBagLayout());
+                GridBagLayout layOutBag = new GridBagLayout();
+                
+                
+                
+                JPanel progressPane = new JPanel(layOutBag);
+                progressPane.setLayout(layOutBag);
+                
+                GridBagConstraints consBag = new GridBagConstraints();
                 JProgressBar progressBar = new JProgressBar(0, 100);
-                progressPane.add(progressBar);
+                progressBar.setAlignmentX(Component.LEFT_ALIGNMENT);
+                progressBar.setAlignmentY(Component.TOP_ALIGNMENT);
+                consBag.anchor = GridBagConstraints.PAGE_END;
+                progressPane.add(progressBar, consBag);
+                
+                layOutBag.addLayoutComponent("ProgressBar_001", progressBar);
                 
                 //001 add Button in from internet form
                 JButton someButton = new JButton();
@@ -126,13 +141,26 @@ public interface RunGeneratedDesktopByThread {
                         new RunThreadRunnableAdapter.ConcurrentSkipListMapReader();
                 someButton = adapterChangeGUI.statusOfButton(someButton);
                 
-                progressPane.add(someButton);
+                consBag.anchor = GridBagConstraints.PAGE_START;
+                progressPane.add(someButton, consBag);
+                someButton.setAlignmentX(Component.LEFT_ALIGNMENT);
+                someButton.setAlignmentY(Component.BOTTOM_ALIGNMENT);
+                layOutBag.addLayoutComponent("Button_001", someButton);
+                
+                Component[] components = progressPane.getComponents();
+                progressPane.doLayout();
 
                 JFrame frame = new JFrame();
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setLayout(new BorderLayout());
                 frame.add(progressPane);
-                frame.setSize(200, 200);
+                frame.setSize(320, 240);
+                frame.setMinimumSize(new Dimension(320, 240));
+                frame.setPreferredSize(new Dimension(800, 600));
+                frame.repaint();
+                frame.revalidate();
+                frame.pack();
+        
                 frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
 

@@ -67,7 +67,7 @@ goto fail
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\desktop.jar;%APP_HOME%\lib\javafx-web-11-win.jar;%APP_HOME%\lib\javafx-media-11-win.jar;%APP_HOME%\lib\javafx-media-11.jar;%APP_HOME%\lib\javafx-controls-11-win.jar;%APP_HOME%\lib\javafx-controls-11.jar;%APP_HOME%\lib\javafx-graphics-11-win.jar;%APP_HOME%\lib\javafx-graphics-11.jar;%APP_HOME%\lib\javafx-base-11-win.jar;%APP_HOME%\lib\javafx-base-11.jar;%APP_HOME%\lib\gradleI001MBSFDRF-20220315_001.jar;%APP_HOME%\lib\net.java.html.boot.fx-1.7.2.jar;%APP_HOME%\lib\ko4j-1.7.2.jar;%APP_HOME%\lib\net.java.html.boot-1.7.2.jar;%APP_HOME%\lib\javafx.beaninfo-0.6.jar;%APP_HOME%\lib\javafx.base-8.60.11.jar;%APP_HOME%\lib\net.java.html.json-1.7.2.jar;%APP_HOME%\lib\net.java.html-1.7.2.jar
+set CLASSPATH=%APP_HOME%\lib\desktop.jar;%APP_HOME%\lib\javafx-web-11-win.jar;%APP_HOME%\lib\javafx-controls-11-win.jar;%APP_HOME%\lib\javafx-controls-11.jar;%APP_HOME%\lib\javafx-media-11-win.jar;%APP_HOME%\lib\javafx-media-11.jar;%APP_HOME%\lib\javafx-graphics-11-win.jar;%APP_HOME%\lib\javafx-graphics-11.jar;%APP_HOME%\lib\javafx-base-11-win.jar;%APP_HOME%\lib\javafx-base-11.jar;%APP_HOME%\lib\gradleI001MBSFDRF-20220315_001.jar;%APP_HOME%\lib\net.java.html.boot.fx-1.7.2.jar;%APP_HOME%\lib\ko4j-1.7.2.jar;%APP_HOME%\lib\net.java.html.boot-1.7.2.jar;%APP_HOME%\lib\javafx.beaninfo-0.6.jar;%APP_HOME%\lib\javafx.base-8.60.11.jar;%APP_HOME%\lib\net.java.html.json-1.7.2.jar;%APP_HOME%\lib\net.java.html-1.7.2.jar
 
 
 @rem Execute desktop
