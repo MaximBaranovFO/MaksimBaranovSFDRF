@@ -21,132 +21,130 @@ import java.io.InputStreamReader;
  */
 public interface RunCmdThExecInterface001 {
 
+    public class ThreadsPerExecutorService // (Mit noch fehlender Synchronisation, siehe unten)
+    {
 
-public class ThreadsPerExecutorService   // (Mit noch fehlender Synchronisation, siehe unten)
-{
-   public static void mainWhoRunThForCmd()
-   {
-      ExeOutputFrame runCmdWithResultIntoFrame = new ExeOutputFrame();
-      
-      
-      runCmdWithResultIntoFrame.mainOutExecIntoFrame(); 
-      
-      
-       
-       
-       
-      ExecutorService threadPool = Executors.newFixedThreadPool( 3 );
-      threadPool.execute( new MainRunnable2( 1 ) );
-      threadPool.execute( new MainRunnable2( 2 ) );
-      threadPool.execute( new MainRunnable2( 3 ) );
-      threadPool.shutdown();
-   }
-}
+        public static void mainWhoRunThForCmd() {
+            ExeOutputFrame runCmdWithResultIntoFrame = new ExeOutputFrame();
 
-class MainRunnable2 implements Runnable
-{
-   static int zaehler = 0;
-   int meineThreadNum;
+            runCmdWithResultIntoFrame.mainOutExecIntoFrame();
 
-   MainRunnable2( int meineThreadNum )
-   {
-      this.meineThreadNum = meineThreadNum;
-   }
+            ExecutorService threadPool = Executors.newFixedThreadPool(3);
+            threadPool.execute(new MainRunnable2(1));
+            threadPool.execute(new MainRunnable2(2));
+            threadPool.execute(new MainRunnable2(3));
+            threadPool.shutdown();
+        }
+    }
 
-   @Override
-   public void run()
-   {
-      while( zaehler < 1000 ) {
-         System.out.println( "Thread " + meineThreadNum + ": " + ++zaehler );
-         try { Thread.sleep( 1 ); } catch( InterruptedException ex ) {/*ok*/}
-      }
-   }
-}
+    class MainRunnable2 implements Runnable {
 
+        static int zaehler = 0;
+        int meineThreadNum;
 
-public class ExeOutputFrame extends JFrame {
-public ExeOutputFrame() {
-Runtime runtime;
-Process process;
-BufferedReader stdout;
-String output;
-JTextArea displayOutput;
-StringBuffer allOutput;
+        MainRunnable2(int meineThreadNum) {
+            this.meineThreadNum = meineThreadNum;
+        }
 
-setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        @Override
+        public void run() {
+            while (zaehler < 1000) {
+                System.out.println("Thread " + meineThreadNum + ": " + ++zaehler);
+                try {
+                    Thread.sleep(1);
+                } catch (InterruptedException ex) {/*ok*/
+                }
+            }
+        }
+    }
+
+    public class ExeOutputFrame extends JFrame {
+
+        public ExeOutputFrame() {
+            Runtime runtime;
+            Process process;
+            BufferedReader stdout;
+            String output;
+            JTextArea displayOutput;
+            StringBuffer allOutput;
+
+            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 // Setup the JFrame
-
 // Use BorderLayout
-getContentPane().setLayout(new BorderLayout());
+            getContentPane().setLayout(new BorderLayout());
 
 // Create the TextArea which will display the EXE’s output
-displayOutput = new JTextArea(10, 60);
+            displayOutput = new JTextArea(10, 60);
 
 // Place the TextArea on the JFrame
-getContentPane().add(new JScrollPane(displayOutput), BorderLayout.SOUTH);
+            getContentPane().add(new JScrollPane(displayOutput), BorderLayout.SOUTH);
 
 // Size the JFrame
-pack();
+            pack();
 
 // Show the JFrame
-setVisible(true);
+            setVisible(true);
 
 // Now we will run the EXE and display the output
-
 // Need a place to house the collected output
-allOutput = new StringBuffer();
+            allOutput = new StringBuffer();
 
 // Access the runtime environment so we can run the EXE
-runtime = Runtime.getRuntime();
+            runtime = Runtime.getRuntime();
 
 // We can encounter checked exceptions, so we need a try block
-try {
-    
-    
-    
+            try {
+
 // Run the EXE, retain the reference to the process that is started
-process = runtime.exec("tracert");
+                process = runtime.exec("tracert");
 
 // Get the standard output from the EXE
-stdout = new BufferedReader(new InputStreamReader(process.
-getInputStream()));
+                stdout = new BufferedReader(new InputStreamReader(process.
+                        getInputStream()));
 
 // As long as we don’t get a null value, keep reading from the stream
-while ((output = stdout.readLine()) != null) {
+                while ((output = stdout.readLine()) != null) {
 // Append the collected input into the message buffer
-allOutput.append(output);
+                    allOutput.append(output);
 // If we gont one or more characters then we need a newline
 // since we are reading a line at a time
-if (output.length() > 0) {
-allOutput.append('n');
-}
+                    if (output.length() > 0) {
+                        allOutput.append('n');
+                    }
 
 // Place the collected text into the TextArea
-displayOutput.setText(allOutput.toString());
+                    displayOutput.setText(allOutput.toString());
 
 // Set the caret in the TextArea to the end of the current text
 // so that the most recent output is visible
-displayOutput.setCaretPosition(allOutput.length());
-}
-} catch (Throwable throwable) {
+                    displayOutput.setCaretPosition(allOutput.length());
+                }
+            } catch (Throwable throwable) {
 // Report the error
-allOutput.append(
-"nError while running command. Exception Class/Message: " +
-throwable.getClass().getName() + "/" + throwable.getMessage() +
-"n" + throwable.getStackTrace().toString());
-}
-}
+                allOutput.append(
+                        "nError while running command. Exception Class/Message: "
+                        + throwable.getClass().getName() + "/" + throwable.getMessage()
+                        + "n" + throwable.getStackTrace().toString());
+            }
+        }
 
-/**
-* Run the program
-*
-* @param args String[]
-*/
-public static void mainOutExecIntoFrame() {
-new ExeOutputFrame();
-}
-}
+        /**
+         * Run the program
+         *
+         * @param args String[]
+         */
+        public static void mainOutExecIntoFrame() {
+            new ExeOutputFrame();
+        }
+    }
 
+    public class ReaderJobFromQueueForWorkerLine {
+
+        ReaderJobFromQueueForWorkerLine() {
+            boolean isRun = Boolean.TRUE;
+            long runAt = System.currentTimeMillis();
+        }
+    }
 
 }

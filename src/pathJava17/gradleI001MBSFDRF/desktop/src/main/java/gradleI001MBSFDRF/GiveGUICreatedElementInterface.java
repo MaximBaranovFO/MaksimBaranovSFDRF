@@ -258,18 +258,28 @@ public interface GiveGUICreatedElementInterface {
             eastPanel.setAlignmentX(JComponent.TOP_ALIGNMENT);
             eastPanel.setAlignmentY(JComponent.CENTER_ALIGNMENT);
 
-            JButton ncHowToInSearch = NcSwGUIComponent.createButton(
-                    forComponentText[0], null, forTextToolTip[2]);
+            JButton ncHowToInSearch = FuncCreateComponentForGUIInterface.CreatorJButtons001.getJButtonImpl();
 
+            /**
+             * NcSwGUIComponent.createButton( forComponentText[0], null,
+             * forTextToolTip[2]);
+             */
             eastPanel.add(ncHowToInSearch);
 
-            JPanel textInSearchPanel = NcSwGUIComponent.getTextFieldForSearchPanel(
-                    textFiledForSearchDimension, forTextToolTip[0]);
-            eastPanel.add(textInSearchPanel);
+            JPanel textInSearchPanel = FuncCreateComponentForGUIInterface.CreatorJPanel001.getJPanelImpl();
 
+            /**
+             * NcSwGUIComponent.getTextFieldForSearchPanel(
+             * textFiledForSearchDimension, forTextToolTip[0]);
+             * eastPanel.add(textInSearchPanel);
+             */
             eastPanel.add(getAndOrButtonPanel());
 
-            JList wiSearch = NcSwGUIComponent.createJListWordInSearch();
+            JList wiSearch = FuncCreateComponentForGUIInterface.CreatorJList001.getJListImpl();
+
+            /**
+             * NcSwGUIComponent.createJListWordInSearch();
+             */
             JScrollPane wiScroll = new JScrollPane(wiSearch);
             wiScroll.setPreferredSize(new Dimension(100, 100));
 
@@ -281,16 +291,27 @@ public interface GiveGUICreatedElementInterface {
             JSeparator ncSeparator = new JSeparator(JSeparator.HORIZONTAL);
             eastPanel.add(ncSeparator);
 
-            eastPanel.add(NcSwGUIComponent.createButton(
-                    forComponentText[0], null, forTextToolTip[3]));
+            eastPanel.add(FuncCreateComponentForGUIInterface.CreatorJButtons001.getJButtonImpl());
 
-            JPanel textOutSearchPanel = NcSwGUIComponent.getTextFieldForSearchPanel(
-                    textFiledForSearchDimension, forTextToolTip[1]);
+            /**
+             * NcSwGUIComponent.createButton( forComponentText[0], null,
+             * forTextToolTip[3]));
+             */
+            JPanel textOutSearchPanel = FuncCreateComponentForGUIInterface.CreatorJPanel001.getJPanelImpl();
+
+            /**
+             * NcSwGUIComponent.getTextFieldForSearchPanel(
+             * textFiledForSearchDimension, forTextToolTip[1]);
+             */
             eastPanel.add(textOutSearchPanel);
 
             eastPanel.add(getAndOrButtonPanel());
 
-            JList wniSearch = NcSwGUIComponent.createJListWordNotInSearch();
+            JList wniSearch = FuncCreateComponentForGUIInterface.CreatorJList001.getJListImpl();
+
+            /**
+             * NcSwGUIComponent.createJListWordNotInSearch();
+             */
             JScrollPane wniScroll = new JScrollPane(wniSearch);
             wniScroll.setPreferredSize(new Dimension(100, 100));
 
@@ -314,8 +335,16 @@ public interface GiveGUICreatedElementInterface {
         private static JPanel getAndOrButtonPanel() {
             JPanel buttonPanel = new JPanel();
             buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.X_AXIS));
-            buttonPanel.add(NcSwGUIComponent.createButton("&&", null, ""));
-            buttonPanel.add(NcSwGUIComponent.createButton("||", null, ""));
+            buttonPanel.add(FuncCreateComponentForGUIInterface.CreatorJButtons001.getJButtonImpl());
+            /**
+             * NcSwGUIComponent.createButton("&&", null, ""));
+             */
+
+            buttonPanel.add(FuncCreateComponentForGUIInterface.CreatorJButtons001.getJButtonImpl());
+            /**
+             * NcSwGUIComponent.createButton("||", null, ""));
+             */
+
             return buttonPanel;
         }
 
@@ -331,8 +360,16 @@ public interface GiveGUICreatedElementInterface {
         private static JPanel getAddDelButtonPanel() {
             JPanel buttonPanel = new JPanel();
             buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.X_AXIS));
-            buttonPanel.add(NcSwGUIComponent.createButton("+", null, ""));
-            buttonPanel.add(NcSwGUIComponent.createButton("-", null, ""));
+            buttonPanel.add(FuncCreateComponentForGUIInterface.CreatorJButtons001.getJButtonImpl());
+
+            /**
+             * NcSwGUIComponent.createButton("+", null, ""));
+             */
+            buttonPanel.add(FuncCreateComponentForGUIInterface.CreatorJButtons001.getJButtonImpl());
+
+            /**
+             * NcSwGUIComponent.createButton("-", null, ""));
+             */
             return buttonPanel;
         }
 
